@@ -1,0 +1,244 @@
+/* Importaciones */
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Oswald&display=swap');
+
+/* RESETEO */
+*{
+    margin: 0%;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* GENERALES */
+
+    body {
+        font-family: 'Montserrat', sans-serif;
+        color: #67666e;     
+    }
+
+    header {
+        margin-top: 80px;
+        padding: 0.5em;
+    }
+
+
+    h1 {
+        font-family: 'Oswald', sans-serif;
+    }
+
+    p {
+        font-size: 1.4em;
+    }
+
+
+    /* Imágenes */
+
+    .logo-small {
+        height: 60px;
+                       
+    }
+
+    /* Nav */
+
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 80px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 1em;
+        background-color: white;
+        box-shadow: 0 2px 4px grey;
+        transition: all 500ms ease-in-out;
+        }
+
+          
+
+     nav.white {
+         background-color: transparent;
+         box-shadow: initial; 
+     }   
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        }
+    
+    /* Para que desaparezcan las pestañas al reducir la pantalla a 720px */
+
+    @media (max-width: 720px) {
+        nav {
+            justify-content: flex-end;
+        }
+        nav ul {
+            display: none;
+            }
+        }
+    /* ---------------------     */
+
+    nav ul li a {
+        color: #67666e;
+        text-decoration: none;
+        font-size: 1.4em;
+        margin: 0 0.5em;
+        padding-bottom: 0.3em;
+    }
+
+    nav.white ul li a {
+        color: black;
+    }
+
+    nav ul li a:hover {
+        border-bottom: 1.5px solid #67666e;
+    }
+
+    nav.white ul li a:hover {
+        border-bottom: 1.5px solid white;
+    }
+
+
+    nav ul li a.active {
+        border-bottom: 1.5px solid #67666e;
+    }
+
+    nav.white ul li a.active {
+        border-bottom: 1.5px solid #67666e;
+    }
+
+    /* Burger pasa a la derecha de la página a los 720px */
+
+    .burger {
+        position: fixed;
+        top: 1em;
+        left: 1em;
+        z-index: 100;
+        cursor: pointer;
+        display: none;
+
+    }   
+        
+    @media (max-width: 720px) {
+        .burger {
+            display: block;
+        }      
+    }
+    .burger .bar {
+        height: 3px;
+        width: 35px;
+        background-color: #67666e;
+        margin: 8px auto;
+        transition: all 700ms ease-in-out;
+    }
+
+    .burger.white .bar {
+        background-color: white;
+    }
+
+    /* Transición de una burger a un asterisco */
+    .burger.open .bar.up {
+        transform: translateY(11px) rotateZ(45deg);
+    }
+
+    .burger.open .bar.middle {
+        width: 0;
+    }
+
+    .burger.open .bar.down {
+        transform: translateY(-11px) rotateZ(-45deg);
+    }
+
+    /* Menú lateral */
+
+    aside {
+        position: fixed;
+        top: 0;
+        left: -360px;  /* Al poner -360px que es su anchura, el menú debería ocultarse para que no se vea todo el rato */
+        z-index: 50;
+        height: 100vh;
+        width: 360px;
+        background-color: #1e1e2d;
+        padding: 100px 20px 20px;
+        transition: all 600ms ease-in-out;
+    }
+
+    /* Creamos un aside.open para poner el menú en la forma inicial (0,0) para que se abra */
+    aside.open {
+        left: 0;            
+    }
+
+    aside .item {
+        padding: 1.5em 0;
+    }
+
+    aside .item:last-child {
+         position: absolute; /*el padre debe estar relative, absolute o fixed, el bottom y el left los mismos valores que el padre */
+         bottom: 20px;
+         left: 20px;
+    }
+
+    aside hr {
+        border: none;
+        height: 1px;
+        background-color: #67666e;
+    }   
+
+    aside .item a, aside .item a:visited {
+        color: #67666e;
+        text-decoration: none;
+    }
+
+    aside .item a:hover, aside .item a.active {
+        color: white;
+    }
+
+    /* Hero */
+
+    .hero {
+        margin-top: 0;
+        width: 100vw;
+        height: 100vh;
+        background-image: url('../img/car-1209912_1920.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+    }
+
+    .hero .titles {
+        color: rgb(255, 208, 0);
+        margin-bottom: 1em;  
+        border-left: 4px solid rgb(255, 208, 0);
+        padding-left: 2em;   
+    }
+
+    .hero .titles h1 {
+        font-size: 4em;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+
+    }
+
+    .hero .titles h2 {
+        font-size: 3em;
+    }
+
+     /* Layout */
+
+     .fila {
+        width: 100%;
+        display: flex;
+        padding: 0.5em;
+    }
+
+    .col-100 {
+        width: 100%;
+        padding: 0.5em;
+        display: flex;
+        flex-direction: column;
+        }
